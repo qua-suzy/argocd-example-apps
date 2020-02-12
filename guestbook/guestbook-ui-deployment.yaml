@@ -19,6 +19,9 @@ spec:
         name: guestbook-ui
         ports:
         - containerPort: 80
+  minReadySeconds: 30
+  revisionHistoryLimit: 3
+  strategy:
 # --- Everything above this comment are the same as a deployment ---
     blueGreen: # A new field for the Blue Green strategy options
       previewService: preview-guestbook-ui # Reference to a service
