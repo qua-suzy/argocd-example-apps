@@ -1,24 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: active-guestbook-ui
+  name: guestbook-ui
 spec:
   selector:
     app: guestbook-ui
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: preview-guestbook-ui
-spec:
-  selector:
-    app: guestbook-ui
-  type: LoadBalancer
   ports:
   - protocol: TCP
     port: 80
