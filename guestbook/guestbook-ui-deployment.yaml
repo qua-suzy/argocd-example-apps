@@ -19,10 +19,7 @@ spec:
         ports:
         - containerPort: 80
   strategy:
-    blueGreen:
-      activeService: active-guestbook-ui
-      previewService: preview-guestbook-ui
-      autoPromotionEnabled: true
-      previewReplicaCount: 1
-      autoPromotionSeconds: 300
-      scaleDownDelaySeconds: 30
+# --- Everything above this comment are the same as a deployment ---
+    blueGreen: # A new field for the Blue Green strategy options
+      previewService: active-guestbook-ui # Reference to a service
+      activeService: my-service-active # Reference to a service
