@@ -19,10 +19,10 @@ spec:
         ports:
         - containerPort: 80
   strategy:
-    canary: #Indicates that the rollout should use the Canary strategy
-      maxSurge: "25%"
-      maxUnavailable: 0,
-      steps:
-      - setWeight: 10
-      - pause:
-          duration: 20 # 1 hour
+    blueGreen:
+      activeService: active-guestbook-ui
+      previewService: preview-guestbook-ui
+      autoPromotionEnabled: false
+      autoPromotionSeconds: 30
+      scaleDownDelaySeconds: 30
+      scaleDownDelayRevisionLimit: 2
