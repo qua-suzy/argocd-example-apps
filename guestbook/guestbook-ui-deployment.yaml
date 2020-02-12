@@ -18,6 +18,3 @@ spec:
         name: guestbook-ui
         ports:
         - containerPort: 80
-  strategy:
-    blueGreen:
-      previewService: guestbook-ui # Reference to a service
