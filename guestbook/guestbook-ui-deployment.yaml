@@ -1,9 +1,9 @@
-apiVersion: argoprj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: guestbook-ui
 spec:
-  replicas: 1
+  replicas: 3
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -19,10 +19,12 @@ spec:
         ports:
         - containerPort: 80
   strategy:
-    blueGreen:
-      activeService: rollout-active
-      previewService: rollout-preview
-      autoPromotionEnabled: true
-      previewReplicaCount: 1
-      autoPromotionSeconds: 300
-      scaleDownDelaySeconds: 30
+    canary:
+      maxSurge: "25%"
+      maxUnavailable: 0,
+      steps:
+      - setWeight: 10
+      - pause:
+        duration: 3600
+      - setWeight: 20
+      - pause: {}
