@@ -4,7 +4,7 @@ kind: Rollout # Changed from Deployment
 metadata:
   name: guestbook-ui
 spec:
-  replicas: 3
+  replicas: 5
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -15,14 +15,16 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
         name: guestbook-ui
         ports:
         - containerPort: 80
   minReadySeconds: 30
-  revisionHistoryLimit: 3
   strategy:
 # --- Everything above this comment are the same as a deployment ---
     blueGreen: # A new field for the Blue Green strategy options
       previewService: preview-guestbook-ui # Reference to a service
       activeService: active-guestbook-ui # Reference to a service
+      previewReplicaCount: 1
+      autoPromotionEnabled: false
+      scaleDownDelaySeconds: 10
