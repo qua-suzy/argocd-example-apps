@@ -15,7 +15,7 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
         name: guestbook-ui
         ports:
         - containerPort: 80
@@ -27,5 +27,5 @@ spec:
       activeService: active-guestbook-ui # Reference to a service
       previewReplicaCount: 1
       autoPromotionEnabled: true
-      AutoPromotionSeconds: 10
-      scaleDownDelaySeconds: 10
+      AutoPromotionSeconds: 5
+      scaleDownDelaySeconds: 5
