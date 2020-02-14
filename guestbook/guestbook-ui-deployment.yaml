@@ -26,6 +26,6 @@ spec:
       previewService: preview-guestbook-ui # Reference to a service
       activeService: active-guestbook-ui # Reference to a service
       previewReplicaCount: 1
-      autoPromotionEnabled: false
+      autoPromotionEnabled: true
       AutoPromotionSeconds: 10
       scaleDownDelaySeconds: 10
