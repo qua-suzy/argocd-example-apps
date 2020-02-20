@@ -17,6 +17,9 @@ spec:
       containers:
       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
         name: guestbook-ui
+        env:
+        - name: FOO
+          value: "foo"
         ports:
         - containerPort: 80
   minReadySeconds: 5
