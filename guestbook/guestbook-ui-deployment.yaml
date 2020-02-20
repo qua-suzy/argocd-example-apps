@@ -19,7 +19,7 @@ spec:
         name: guestbook-ui
         ports:
         - containerPort: 80
-  minReadySeconds: 30
+  minReadySeconds: 5
   strategy:
 # --- Everything above this comment are the same as a deployment ---
     blueGreen: # A new field for the Blue Green strategy options
