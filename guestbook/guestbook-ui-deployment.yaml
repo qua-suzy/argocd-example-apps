@@ -22,7 +22,7 @@ spec:
         env:	
         - name: FOO
           value: "foo"
-  minReadySeconds: 5
+  minReadySeconds: 10
   strategy:
 # --- Everything above this comment are the same as a deployment ---
     blueGreen: # A new field for the Blue Green strategy options
@@ -30,5 +30,5 @@ spec:
       activeService: active-guestbook-ui # Reference to a service
       previewReplicaCount: 1
       autoPromotionEnabled: false
-      AutoPromotionSeconds: 5
-      scaleDownDelaySeconds: 5
+      AutoPromotionSeconds: 10
+      scaleDownDelaySeconds: 10
