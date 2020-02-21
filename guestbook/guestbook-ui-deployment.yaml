@@ -19,6 +19,9 @@ spec:
         name: guestbook-ui
         ports:
         - containerPort: 80
+        env:	
+        - name: FOO
+          value: "foo"
   minReadySeconds: 5
   strategy:
 # --- Everything above this comment are the same as a deployment ---
