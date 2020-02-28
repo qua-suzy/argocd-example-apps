@@ -21,7 +21,7 @@ spec:
         - containerPort: 80
         env:	
         - name: FOO
-          value: "foo"
+          value: "bar"
   minReadySeconds: 10
   strategy:
 # --- Everything above this comment are the same as a deployment ---
