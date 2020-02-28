@@ -15,13 +15,13 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
         name: guestbook-ui
         ports:
         - containerPort: 80
         env:	
         - name: FOO
-          value: "bar"
+          value: "foo"
   minReadySeconds: 10
   strategy:
 # --- Everything above this comment are the same as a deployment ---
